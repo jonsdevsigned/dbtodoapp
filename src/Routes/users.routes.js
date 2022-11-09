@@ -1,22 +1,25 @@
-const { Router } = require("express");
+const { Router } = require('express')
 const {
-  getAllUsers,
-  getUserById,
-  getUserWithAddres,
-  getUserWithTasks,
-} = require("../Controllers/users.controllers");
+	getAllUsers,
+	getUserById,
+	getUserWithAddres,
+	getUserWithTasks,
+	createUser
+} = require('../Controllers/users.controllers')
 
-const router = Router();
+const router = Router()
 
 // para obtener a todos los usuarios --> get
-router.get("/users", getAllUsers);
+router.get('/users', getAllUsers)
 
 // obtener un usuario por su id
 // /users/:id
-router.get("/users/:id", getUserById);
+router.get('/users/:id', getUserById)
 
-router.get("/users/:id/address", getUserWithAddres);
+router.get('/users/:id/address', getUserWithAddres)
 
-router.get("/users/:id/tasks", getUserWithTasks);
+router.get('/users/:id/tasks', getUserWithTasks)
 
-module.exports = router;
+router.post('/users', createUser)
+
+module.exports = router
