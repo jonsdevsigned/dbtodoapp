@@ -1,15 +1,16 @@
 // es para gestionar la conexón a la base de datos
 // sequelize init --> config
 
-const { Sequelize } = require("sequelize");
+const { Sequelize } = require('sequelize')
+require('dotenv').config()
 
 const db = new Sequelize({
-  database: "todo",
-  username: "postgres",
-  host: "localhost",
-  port: "5432",
-  password: "root",
-  dialect: "postgres",
-});
+	database: process.env.DB_NAME || 'todo_dos',
+	username: process.env.DB_USER || 'postgres',
+	host: process.env.DB_HOST || 'localhost',
+	port: process.env.DB_PORT || '5432',
+	password: process.env.DB_PASS || 'root',
+	dialect: 'postgres'
+})
 
-module.exports = db;
+module.exports = db
